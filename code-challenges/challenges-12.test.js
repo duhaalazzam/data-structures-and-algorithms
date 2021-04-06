@@ -10,8 +10,11 @@ E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
   // Solution code here...
-};
+     return arr.reduce((accumulator, currentValue) => {
+            return (accumulator > currentValue ? accumulator : currentValue);
+       });
 
+};
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -28,6 +31,17 @@ return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
   // Solution code here...
+  let max=0;
+  matrix.forEach(element=>{
+     for(let i=0;i<element.length;i++)
+     {
+       if(element[i]>max)
+       {
+         max=element[i];
+       }
+     }
+  });
+  return max;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -81,7 +95,18 @@ const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
   // Solution code here...
-
+  let newArr=[];
+  let sum;
+  for(let i=0;i<12;i++)
+  {
+    sum=0;
+    for(let j=0;j<stores.length;j++)
+    {
+sum+=cookieStores[j][i];
+    }
+    newArr.push(sum);
+  }
+ return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -96,6 +121,17 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 
 const salesData = (hours, data) => {
   // Solution code here...
+  let newArr=[];
+  let obj;
+  for(let i=0;i<hours.length;i++)
+  {
+    obj={
+      sales: `${data[i]} cookies`,
+      time: hours[i]
+    };
+    newArr.push(obj);
+  }
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -121,6 +157,15 @@ const errands = [
 
 const howManyTreats = (arr) => {
   // Solution code here...
+  let quantity;
+  arr.forEach(element=>{
+     element.items.forEach(itemElement=>{
+        if(itemElement.name==='Treats'){
+          quantity= itemElement.quantity;
+        }
+     });
+  });
+  return quantity;
 };
 
 /* ------------------------------------------------------------------------------------------------
