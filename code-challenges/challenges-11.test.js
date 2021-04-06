@@ -3,7 +3,7 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
-Write a function that iterates over an array of people objects
+Write a function that iterates over an array of people objects 
 and creates a new list of each person's full name using the array method 'map'.
 Each object will have the shape {firstName:string, lastName:string}
 E.g. [ { firstName:"Jane", lastName:"Doe" }, { firstName:"James", lastName:"Bond"}]
@@ -13,8 +13,12 @@ You can assume that neither firstName nor lastName will be blank
 ------------------------------------------------------------------------------------------------ */
 const toLastNames = people => {
   // Solution code here...
+ return people.map(getFullName);
 };
-
+function getFullName(item) {
+  var fullname = [item.firstName,item.lastName].join(" ");
+  return fullname;
+}
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -25,6 +29,7 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 
 const validatePin = (pin) => {
   // Solution code here...
+ return (/^\d{4}$/).test(pin);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -37,6 +42,7 @@ If the word is between 5 and 10 characters long, return true. Otherwise, return 
 
 const validateWord = (word) => {
   // Solution code here...
+ return (/^[A-Za-z]{5,10}$/).test(word);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -49,6 +55,7 @@ If it does, return true. If not, return false.
 
 const hasNumber = (string) => {
   // Solution code here...
+  return (/[A-Za-z][0-9]/g).test(string);
 };
 
 /* ------------------------------------------------------------------------------------------------
